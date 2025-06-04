@@ -1,0 +1,63 @@
+{# calls/templates/calls/callers_table.html #}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bookr Incoming Calls</title>
+  <link rel="stylesheet" href="{% static 'calls/css/styles.css' %}">
+</head>
+<body>
+  <h1>Bookr Incoming Calls</h1>
+
+  <table id="callers-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Call ID</th>
+        <th>Caller Number</th>
+        <th>Main Path</th>
+        <th>Caller Type</th>
+        <th>Business Name</th>
+        <th>Practice Type</th>
+        <th>Primary Interest</th>
+        <th>Sales Email</th>
+        <th>Client Inquiry Focus</th>
+        <th>Client Name</th>
+        <th>Account Identifier</th>
+        <th>Issue Summary</th>
+        <th>Callback Number</th>
+        <th>Transcript</th>
+        <th>Received At</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for caller in callers %}
+      <tr>
+        <td>{{ caller.id }}</td>
+        <td>{{ caller.call_id }}</td>
+        <td>{{ caller.caller_number }}</td>
+        <td>{{ caller.main_path }}</td>
+        <td>{{ caller.caller_type }}</td>
+        <td>{{ caller.business_name|default:"" }}</td>
+        <td>{{ caller.practice_type|default:"" }}</td>
+        <td>{{ caller.primary_interest|default:"" }}</td>
+        <td>{{ caller.sales_email|default:"" }}</td>
+        <td>{{ caller.client_inquiry_focus|default:"" }}</td>
+        <td>{{ caller.client_name|default:"" }}</td>
+        <td>{{ caller.account_identifier|default:"" }}</td>
+        <td>{{ caller.support_issue_summary|default:"" }}</td>
+        <td>{{ caller.callback_number|default:"" }}</td>
+        <td class="small-cell">{{ caller.transcript|default:"" }}</td>
+        <td>{{ caller.created_at|date:"Y-m-d H:i:s" }}</td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="16">No records found.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
