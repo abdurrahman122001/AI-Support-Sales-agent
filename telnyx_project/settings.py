@@ -13,7 +13,7 @@ DEBUG = True
 
 # ─── ALLOWED HOSTS ──────────────────────────────────────────────────────────────
 # For local dev, "*" is fine.
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["http://localhost:8080"]
 
 # ─── INSTALLED APPS ─────────────────────────────────────────────────────────────
 INSTALLED_APPS = [
